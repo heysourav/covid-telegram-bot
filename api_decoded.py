@@ -3,13 +3,14 @@ import requests
 import json
 import datetime
 import urllib
+import cloudscraper
 from json import loads
+scraper = cloudscraper.create_scraper()
 
 def get_update(district , age) :
     date = str(f"{datetime.datetime.now():%d-%m-%Y}")
     url = f"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={district}&date={date}"
-    response = requests.get(url)
-    data = response.json()
+    data = json.loads(url)
     results = []
     print("*********************")
     for i in range(len(data['centers'])):
