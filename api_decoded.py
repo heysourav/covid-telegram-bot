@@ -5,8 +5,7 @@ import datetime
 import urllib
 from json import loads
 
-def get_update(district) :
-    age =45
+def get_update(district , age) :
     date = str(f"{datetime.datetime.now():%d-%m-%Y}")
     url = f"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={district}&date={date}"
     response = requests.get(url)
